@@ -7,17 +7,20 @@ set(CMAKE_CXX_STANDARD 11)
 # Add main executable
 add_executable(cpp_ci_example main.cpp sequential_cholesky.cpp)
 
-# Find Google Test package
-find_package(GTest REQUIRED)
-include_directories(${GTEST_INCLUDE_DIRS})
-
+# Enable testing
 enable_testing()
+
+# Add Google Test
+add_subdirectory(external/googletest)
+
+# Include Google Test headers
+include_directories(external/googletest/googletest/include)
 
 # Add test executable
 add_executable(test_sequential_cholesky test_sequential_cholesky.cpp sequential_cholesky.cpp)
 
 # Link test executable against Google Test libraries
-target_link_libraries(test_sequential_cholesky ${GTEST_LIBRARIES})
+target_link_libraries(test_sequential_cholesky gtest gtest_main pthread)
 
 # Add test to CTest
 add_test(NAME SequentialCholeskyTest COMMAND test_sequential_cholesky)

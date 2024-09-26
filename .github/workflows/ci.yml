@@ -10,17 +10,18 @@ on:
 jobs:
   build:
 
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+      with:
+        submodules: true  # Ensure submodules are checked out
 
     - name: Install dependencies
       run: |
-        brew update
-        brew install cmake
-        brew install googletest
+        sudo apt-get update
+        sudo apt-get install -y cmake build-essential
 
     - name: Build
       run: |
