@@ -10,14 +10,17 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
     - name: Install dependencies
-      run: sudo apt-get update && sudo apt-get install -y cmake build-essential
+      run: |
+        brew update
+        brew install cmake
+        brew install googletest
 
     - name: Build
       run: |
@@ -26,7 +29,12 @@ jobs:
         cmake ..
         make
 
-    - name: Test
+    - name: Run main program
       run: |
         cd build
         ./cpp_ci_example
+
+    - name: Run unit tests
+      run: |
+        cd build
+        ctest --output-on-failure
