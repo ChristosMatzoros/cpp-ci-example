@@ -1,0 +1,3 @@
+/Users/cmatzoros/Apps/cpp-ci-example/build/CMakeFiles/cpp_ci_example.dir
+/Users/cmatzoros/Apps/cpp-ci-example/build/CMakeFiles/edit_cache.dir
+/Users/cmatzoros/Apps/cpp-ci-example/build/CMakeFiles/rebuild_cache.dir
