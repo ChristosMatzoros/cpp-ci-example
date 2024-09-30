@@ -8,6 +8,10 @@ set(CMAKE_CXX_STANDARD 11)
 # Include custom CMake modules
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 include(AddGitSubmodule)
+include(Docs)
+
+# Call the function to check and install Doxygen
+find_and_install_doxygen()
 
 # Initialize the googletest submodule
 add_git_submodule(external/googletest https://github.com/google/googletest.git)
