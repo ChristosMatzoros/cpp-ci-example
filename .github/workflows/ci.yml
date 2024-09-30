@@ -33,7 +33,7 @@ jobs:
     - name: Run main program
       run: |
         cd build
-        ./cpp_ci_example
+        ./bin/cpp_ci_example
 
     - name: Run unit tests
       run: |
