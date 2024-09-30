@@ -1,8 +1,16 @@
 # CMakeLists.txt
+
 cmake_minimum_required(VERSION 3.10)
 project(cpp_ci_example)
 
 set(CMAKE_CXX_STANDARD 11)
+
+# Include custom CMake modules
+set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
+include(AddGitSubmodule)
+
+# Initialize the googletest submodule
+add_git_submodule(external/googletest https://github.com/google/googletest.git)
 
 # Add main executable
 add_executable(cpp_ci_example main.cpp sequential_cholesky.cpp)
